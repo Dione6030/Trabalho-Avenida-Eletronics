@@ -1,0 +1,9 @@
+
+
+function Pesquisar() {
+    return (
+        <>
+            <Header />
+        </>
+    )
+}

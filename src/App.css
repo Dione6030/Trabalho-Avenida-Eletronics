@@ -1,42 +1,49 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import "tailwindcss";
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+@theme {
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*Tema classico*/
+  --color-preto-claro: #1c1c1c;
+  --color-vermelho-principal: #ff0000;
+  --color-vermelho-secundario: #d10000;
+  --color-cinza-primario: #f5f5f5;
+  --color-cinza-secundario: #a9a9a9;
+  
+    /*Opções de fonts*/
+    --font-titulo-classico-proficional: 'Montserrat', sans-serif;
+    --font-texto-classico-proficional-1: 'Lato', sans-serif;
+    --font-texto-classico-proficional-2: 'roboto', sans-serif;
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
+    --font-titulo-classico-industrial: 'Oswald', sans-serif;
+    --font-textto-classico-industrial: 'Source Sans 3', sans-serif;
 
-.card {
-  padding: 2em;
-}
+/*Tema vibrante*/
+  --color-preto-vibrante: #1a1a1a;
+  --color-vermelho-vibrante: #ff1b1b;
+  --color-ciano-destaque: #00ffff;
+  --color-azul-destaque: #4d9fff;
+  --color-cinza-vibrante: #333333;
+    
+    /*Opções de fonts*/
+    --font-titulo-vibrante-tec-1: 'Rajdhani', sans-serif;
+    --font-titulo-vibrante-tec-2: 'Exo 2', sans-serif;
+    --font-texto-vibrante-tec: 'Poppins', sans-serif;
 
-.read-the-docs {
-  color: #888;
+    --font-titulo-vibrante-futurista: 'Orbitron', sans-serif;
+    --font-texto-vibrante-futurista: 'Ubuntu', sans-serif;
+
+/*Tema sofisticado*/
+  --color-preto-sofisticado: #121212;
+  --color-vermelho-sofisticado: #a40000;
+  --color-dourado-destaque: #ffd700;
+  --color-ouro-velho: #b8860b;
+  --color-cinza-sofisticado: #f0f0f0;
+
+    /*Opções de fonts*/
+    --font-titulo-sofisticado-moderno: 'Playfair Display', serif;
+    --font-texto-sofisticado-moderno: 'Raleway', serif;
+
+    --font-titulo-sofisticado-minimalista: 'Cormorant Garamond', serif;
+    --font-texto-sofisticado-minimalista: 'Nunito Sans', sans-serif;
 }
