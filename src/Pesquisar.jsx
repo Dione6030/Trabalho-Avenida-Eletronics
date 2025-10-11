@@ -4,6 +4,7 @@ function Pesquisar() {
     return (
         <>
             <Header />
+            
         </>
     )
 }
