@@ -1,4 +1,4 @@
-
+import Header from "./components/header";
 
 function Pesquisar() {
     return (
@@ -7,3 +7,5 @@ function Pesquisar() {
         </>
     )
 }
+
+export default Pesquisar
