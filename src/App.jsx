@@ -32,6 +32,7 @@ function App() {
         <h2 className='text-3xl font-titulo-vibrante-tec-2 font-semibold text-vermelho-vibrante'>Lista de Produtos</h2>
         <div className='bg-preto-vibrante flex flex-wrap items-center w-[58rem] justify-around gap-y-6 py-8 rounded-lg'>
           {listaProdutos}
+          <Card />
         </div>
       </main>
     </>

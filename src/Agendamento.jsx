@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, /*useState*/ } from "react";
 import Header from "./components/header";
 import { useForm } from "react-hook-form";
 import Card from "./components/card";
@@ -44,7 +44,7 @@ function Agendar() {
         <main className="bg-cinza-vibrante w-full min-h-screen py-12 flex flex-col items-center gap-8">
             <h2 className="text-3xl font-titulo-vibrante-tec-2 font-semibold text-vermelho-vibrante">Agendamento para o Produto.nome</h2>
             <section className="bg-preto-vibrante flex flex-col items-center w-[58rem] justify-around gap-y-6 py-8 rounded-lg">
-                {/*<Card />*/}
+                <Card />
                 <form className="bg-preto-vibrante flex flex-col items-start p-6 rounded-lg" onSubmit={handleSubmit(ConcluirAgendamento)} >
                     <div className="flex justify-around gap-8">
                         <p className="flex flex-col gap-2 mb-4">

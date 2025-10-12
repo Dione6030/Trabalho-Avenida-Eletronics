@@ -7,6 +7,7 @@ import Adicionar from './Adicionar.jsx'
 import Pesquisar from './Pesquisar.jsx'
 import Alterando from './Alterando.jsx'
 import Agendar from './Agendamento.jsx'
+import Reviews from './Reviews.jsx'
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   { path: '/pesquisar', element: <Pesquisar /> },
   { path: '/alterando', element: <Alterando /> },
   { path: '/agendar', element: <Agendar /> },
+  { path: '/reviews', element: <Reviews /> },
 ]);
 
 createRoot(document.getElementById('root')).render(
