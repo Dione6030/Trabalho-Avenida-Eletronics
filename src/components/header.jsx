@@ -14,7 +14,6 @@ export default function Header() {
                 <Link to="/" className='bg-preto-vibrante text-vermelho-vibrante py-2 px-3 rounded-lg'>Home</Link>
                 <Link to="/pesquisar" className='bg-preto-vibrante text-vermelho-vibrante py-2 px-3 rounded-lg'>Pesquisar</Link>
                 <Link to="/adicionar" className='bg-preto-vibrante text-vermelho-vibrante py-2 px-3 rounded-lg'>Adicionar Produto</Link>
-                <Link to="/alterar" className='bg-preto-vibrante text-vermelho-vibrante py-2 px-3 rounded-lg'>Alterar Produto</Link>
             </nav>
         </>
     )
