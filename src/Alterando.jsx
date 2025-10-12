@@ -32,7 +32,7 @@ function AlterarProduto(id, novoProduto) {
 
     useEffect(() => {
         setFocus("nome");
-    }, [setFocus]);
+    }, []);
 
     return (
         <>

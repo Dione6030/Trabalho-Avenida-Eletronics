@@ -43,7 +43,7 @@ function Adicionar() {
 
     useEffect(() => {
         setFocus("nome");
-    }, [setFocus])
+    }, []);
 
     return (
         <>
@@ -51,7 +51,7 @@ function Adicionar() {
 
             <main className="bg-cinza-vibrante w-full min-h-screen py-12 flex flex-col items-center gap-8">
                 <h2 className="text-3xl font-titulo-vibrante-tec-2 font-semibold text-vermelho-vibrante">Adicionar Produto</h2>
-                <form  className="bg-preto-vibrante flex flex-col items-start p-6 rounded-lg" onSubmit={handleSubmit(cadastrarProduto)} onReset={reset(resetarCampos)}>
+                <form  className="bg-preto-vibrante flex flex-col items-start p-6 rounded-lg" onSubmit={handleSubmit(cadastrarProduto)} onReset={resetarCampos}>
                     <p className="flex flex-col gap-2 mb-4">
                         <label htmlFor="nome" className="font-texto-vibrante-tec text-vermelho-vibrante text-[1.25rem]">Nome do Produto</label>
                         <input type="text" id="nome" required
