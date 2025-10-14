@@ -1,0 +1,59 @@
+{
+  "produtos": [
+    {
+      "id": "1",
+      "categoria": "Periféricos",
+      "subcategoria": "Controles",
+      "marca": "Sony",
+      "nome": "Dualsense",
+      "preco": "379,99",
+      "imagem": "https://m.media-amazon.com/images/M/MV5BOGNhYmY5YzgtZDE5Yi00OGJlLThkMTctOTEyNzdjZjcyMDg4XkEyXkFqcGc@._V1_.jpg"
+    },
+    {
+      "id": "2",
+      "categoria": "Hardware",
+      "subcategoria": "Processadores",
+      "marca": "AMD",
+      "nome": "Ryzen 5 5600X",
+      "preco": "1099,99",
+      "imagem": "https://m.media-amazon.com/images/M/MV5BMTY5NjY5NjY4NF5BMl5BanBnXkFtZTgwNjY5NjY5NjY@._V1_.jpg"
+    },
+    {
+      "id": "3",
+      "categoria": "Hardware",
+      "subcategoria": "Placas de Vídeo",
+      "marca": "NVIDIA",
+      "nome": "RTX 3060",
+      "preco": "1899,99",
+      "imagem": "https://m.media-amazon.com/images/M/MV5BOGNhYmY5YzgtZDE5Yi00OGJlLThkMTctOTEyNzdjZjcyMDg4XkEyXkFqcGc@._V1_.jpg"
+    },
+    {
+      "id": "4",
+      "categoria": "Hardware",
+      "subcategoria": "HD/SSD",
+      "marca": "Kingston",
+      "nome": "NV3",
+      "preco": "459,99",
+      "imagem": "https://m.media-amazon.com/images/M/MV5BOGNhYmY5YzgtZDE5Yi00OGJlLThkMTctOTEyNzdjZjcyMDg4XkEyXkFqcGc@._V1_.jpg"
+    },
+    {
+      "id": "5",
+      "categoria": "Periféricos",
+      "subcategoria": "",
+      "marca": "Samsung",
+      "nome": "Essential S3 24",
+      "preco": "749,99",
+      "imagem": "https://m.media-amazon.com/images/M/MV5BOGNhYmY5YzgtZDE5Yi00OGJlLThkMTctOTEyNzdjZjcyMDg4XkEyXkFqcGc@._V1_.jpg"
+    },
+    {
+      "id": "2e06",
+      "nome": "aaaaa",
+      "marca": "aaaaa",
+      "preco": "4444",
+      "regiao": "aaaa",
+      "imagem": "aaaa",
+      "categoria": "aaa",
+      "subcategoria": "aa"
+    }
+  ]
+}

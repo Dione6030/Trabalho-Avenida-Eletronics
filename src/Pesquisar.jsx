@@ -9,18 +9,32 @@ function Pesquisar() {
 
     async function pesquisarProdutos(data) {
         try {
-            const resposta = await fetch("")
+            const resposta = await fetch("http://localhost:3000/produtos");
             if (!resposta.ok) throw new Error("Erro ao buscar produtos");
             const dados = await resposta.json();
-            const dadosfiltrados = dados.filter( produto =>(
-                produto.marca.toUpperCase().includes(data.pesquisamc.toUpperCase) ||
-                produto.categoria.toUpperCase().includes(data.pesquisamc.toUpperCase) &&
-                produto.regiao.toUpperCase().includes(data.pesquisaregiao.toUpperCase)
-            ))
-            if (dadosfiltrados.lenght == 0) {
-                alert("Nenhum produto encontrado desta marca/categoria nesta região")
+            const pesquisaMarca = (data.pesquisamarca || '').trim().toUpperCase();
+            const pesquisaCateg = (data.pesquisacateg || '').trim().toUpperCase();
+            const pesquisaSCateg = (data.pesquisascateg || '').trim().toUpperCase();
+
+            if (!pesquisaMarca && (!pesquisaCateg || !pesquisaSCateg)) {
+                setProdutos(dados);
+                return;
+            }
+
+            const dadosfiltrados = dados.filter(produto => {
+                const marca = (produto?.marca || '').toString().toUpperCase();
+                const categoria = (produto?.categoria || produto?.['sub-categoria'] || '').toString().toUpperCase();
+                const puxaMarca = pesquisaMarca ? marca.includes(pesquisaMarca) : true;
+                const puxaCateg = pesquisaCateg ? categoria.includes(pesquisaCateg) : true;
+                const puxaSCateg = pesquisaSCateg ? categoria.includes(pesquisaCateg) : true;
+                return puxaMarca && puxaCateg;
+            });
+
+            if (dadosfiltrados.length === 0) {
+                alert("Nenhum produto encontrado desta marca ou categoria");
+                setProdutos([]);
             } else {
-                setProdutos(dadosfiltrados)
+                setProdutos(dadosfiltrados);
             }
         } catch (error) {
             console.log("Error: ", error.message);
@@ -40,12 +54,12 @@ function Pesquisar() {
                 <h2 className="text-3xl font-titulo-vibrante-tec-2 font-semibold text-vermelho-vibrante">Pesquisar Produtos</h2>
                 <form onSubmit={handleSubmit(pesquisarProdutos)} className="flex flex-col items-center gap-4">
                     <div className="flex gap-4">
-                        <input type="text" className="bg-cinza-primario border border-cinza-secundario rounded-lg p-2" required
-                        placeholder="Marca ou Categoria"
-                        {...register("pesquisamc")} />
-                        <input type="text" className="bg-cinza-primario border border-cinza-secundario rounded-lg p-2" required
-                        placeholder="Região"
-                        {...register("pesquisaregiao")} />
+                        <input type="text" className="bg-cinza-primario border border-cinza-secundario rounded-lg p-2"
+                        placeholder="Marca"
+                        {...register("pesquisamarca")} />
+                        <input type="text" className="bg-cinza-primario border border-cinza-secundario rounded-lg p-2"
+                        placeholder="Categoria"
+                        {...register("pesquisacateg || pesquisaSCateg")} />
                     </div>
                     <input type="submit" value="Pesquisar" className="bg-azul-destaque rounded-lg p-2 cursor-pointer" />
                 </form>

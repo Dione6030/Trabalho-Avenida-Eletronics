@@ -3,6 +3,7 @@ import Header from "./components/header";
 import { useForm } from "react-hook-form";
 import Card from "./components/card";
 
+
 function Agendar() {
     const { register, handleSubmit, reset, setFocus } = useForm();
     //const [Produto, setProduto] = useState();
@@ -16,7 +17,7 @@ function Agendar() {
         const complemento = data.complemento;
 
         try {
-            const resposta = await fetch("", {
+            const resposta = await fetch("http://localhost:3000/produtos", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

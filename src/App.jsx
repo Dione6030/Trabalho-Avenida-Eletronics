@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import Card from './components/card'
 import Header from './components/header'
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -10,7 +12,7 @@ function App() {
   useEffect(() => {
     async function buscarProdutos() {
       try {
-        const resposta = await fetch("")
+        const resposta = await fetch("http://localhost:3000/produtos");
         if (!resposta.ok) throw new Error("Erro ao buscar produtos");
         const dados = await resposta.json();
         setProdutos(dados.reverse());
@@ -32,7 +34,9 @@ function App() {
         <h2 className='text-3xl font-titulo-vibrante-tec-2 font-semibold text-vermelho-vibrante'>Lista de Produtos</h2>
         <div className='bg-preto-vibrante flex flex-wrap items-center w-[58rem] justify-around gap-y-6 py-8 rounded-lg'>
           {listaProdutos}
-          <Card />
+          {produtos.length === 0 && (
+            <p className="text-white w-full text-center">Nenhum produto encontrado.</p>
+          )}
         </div>
       </main>
     </>
