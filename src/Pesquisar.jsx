@@ -12,9 +12,9 @@ function Pesquisar() {
             const resposta = await fetch("http://localhost:3000/produtos");
             if (!resposta.ok) throw new Error("Erro ao buscar produtos");
             const dados = await resposta.json();
-            const pesquisaMarca = (data.pesquisamarca || '').trim().toUpperCase();
-            const pesquisaCateg = (data.pesquisacateg || '').trim().toUpperCase();
-            const pesquisaSCateg = (data.pesquisascateg || '').trim().toUpperCase();
+            const pesquisaMarca = (data.pesquisamarca || '').toString().toUpperCase();
+            const pesquisaCateg = (data.pesquisacateg || '').toString().toUpperCase();
+            const pesquisaSCateg = (data.pesquisascateg || '').toString().toUpperCase();
 
             if (!pesquisaMarca && (!pesquisaCateg || !pesquisaSCateg)) {
                 setProdutos(dados);
@@ -23,11 +23,14 @@ function Pesquisar() {
 
             const dadosfiltrados = dados.filter(produto => {
                 const marca = (produto?.marca || '').toString().toUpperCase();
-                const categoria = (produto?.categoria || produto?.['sub-categoria'] || '').toString().toUpperCase();
-                const puxaMarca = pesquisaMarca ? marca.includes(pesquisaMarca) : true;
-                const puxaCateg = pesquisaCateg ? categoria.includes(pesquisaCateg) : true;
-                const puxaSCateg = pesquisaSCateg ? categoria.includes(pesquisaCateg) : true;
-                return puxaMarca && puxaCateg;
+                const categoria = (produto?.categoria || '').toString().toUpperCase();
+                const subcategoria = (produto?.subcategoria || '').toString().toUpperCase();
+
+                const puxaMarca = pesquisaMarca ? marca === pesquisaMarca : true;
+                const puxaCateg = pesquisaCateg ? categoria === pesquisaCateg : true;
+                const puxaSCateg = pesquisaSCateg ? subcategoria === pesquisaSCateg : true;
+                
+                return puxaMarca && puxaCateg && puxaSCateg;
             });
 
             if (dadosfiltrados.length === 0) {
@@ -59,7 +62,8 @@ function Pesquisar() {
                         {...register("pesquisamarca")} />
                         <input type="text" className="bg-cinza-primario border border-cinza-secundario rounded-lg p-2"
                         placeholder="Categoria"
-                        {...register("pesquisacateg || pesquisaSCateg")} />
+                        {...register("pesquisacateg")}
+                        {...register("pesquisascateg")} />
                     </div>
                     <input type="submit" value="Pesquisar" className="bg-azul-destaque rounded-lg p-2 cursor-pointer" />
                 </form>

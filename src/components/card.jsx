@@ -10,7 +10,7 @@ function Card({ produto }){
 
     return (
         <div className='bg-cinza-vibrante rounded-lg w-80 flex flex-col items-start'>
-            <img src={imagem} alt={`Capa do ${nome}`} className='w-full h-44 rounded-t-lg object-cover' />
+            <img src={imagem} alt={`Capa do ${nome}`} className='w-full h-48 rounded-t-lg' />
             <div className='flex flex-col p-6 items-start gap-2'>
                 <p className='text-xl font-semibold font-titulo-vibrante-tec-2 text-white'>{nome}</p>
                 <p className='text-sm font-medium text-azul-destaque'>Marca: {marca}</p>
@@ -21,9 +21,10 @@ function Card({ produto }){
             <div className='flex justify-between items-center gap-4 px-4 py-4'>
                 <button className='py-2 px-2 bg-preto-vibrante rounded-lg'><a href="/agendar" className='font-texto-vibrante-tec text-azul-destaque font-semibold'>Agendar entrega</a></button>
                 <button className='py-2 px-2 bg-preto-vibrante rounded-lg'><a href={`/alterando/${produto?.id}`} className='font-texto-vibrante-tec text-azul-destaque font-semibold'>Alterar</a></button>
-                <button className='py-2 px-2 bg-vermelho-vibrante rounded-lg'><a href="/reviews" className='font-texto-vibrante-tec text-ciano-destaque font-semibold'>Ver Reviews</a></button>
+                <button className='py-2 px-2 bg-vermelho-vibrante rounded-lg'><a href={`/reviews/${produto?.id}`} className='font-texto-vibrante-tec text-ciano-destaque font-semibold'>Ver Reviews</a></button>
             </div>
         </div>
-)}
+    )
+}
 
 export default Card

@@ -15,11 +15,11 @@ const router = createBrowserRouter([
   { path: '/pesquisar', element: <Pesquisar /> },
   { path: '/alterando/:id', element: <Alterando /> },
   { path: '/agendar', element: <Agendar /> },
-  { path: '/reviews', element: <Reviews /> },
+  { path: '/reviews/:id', element: <Reviews /> },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
-)
+  </StrictMode>
+);
