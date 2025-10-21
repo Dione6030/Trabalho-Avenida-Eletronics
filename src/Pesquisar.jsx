@@ -3,18 +3,26 @@ import { useForm } from "react-hook-form";
 import Card from "./components/card";
 import { useState } from "react";
 
+function normalizarString(str) {
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
 function Pesquisar() {
     const { register, handleSubmit } = useForm();
     const [produtos, setProdutos] = useState([]);
+
 
     async function pesquisarProdutos(data) {
         try {
             const resposta = await fetch("http://localhost:3000/produtos");
             if (!resposta.ok) throw new Error("Erro ao buscar produtos");
             const dados = await resposta.json();
-            const pesquisaMarca = (data.pesquisamarca || '').toString().toUpperCase();
-            const pesquisaCateg = (data.pesquisacateg || '').toString().toUpperCase();
-            const pesquisaSCateg = (data.pesquisascateg || '').toString().toUpperCase();
+            const pesquisaMarca = (data.pesquisamarca || '').toString().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const pesquisaCateg = (data.pesquisacateg || '').toString().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const pesquisaSCateg = (data.pesquisascateg || '').toString().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
             if (!pesquisaMarca && !pesquisaCateg && !pesquisaSCateg) {
                 setProdutos(dados);
@@ -22,10 +30,9 @@ function Pesquisar() {
             }
 
             const dadosfiltrados = dados.filter(produto => {
-                const marca = (produto?.marca || '').toString().toUpperCase();
-                const categoria = (produto?.categoria || '').toString().toUpperCase();
-                const subcategoria = (produto?.subcategoria || '').toString().toUpperCase();
-
+                const marca = (produto?.marca || '').toString().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const categoria = (produto?.categoria || '').toString().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                const subcategoria = (produto?.subcategoria || '').toString().toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                 const puxaMarca = pesquisaMarca ? marca === pesquisaMarca : true;
                 const puxaCateg = pesquisaCateg ? categoria === pesquisaCateg : true;
                 const puxaSCateg = pesquisaSCateg ? subcategoria === pesquisaSCateg : true;
