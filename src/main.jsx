@@ -8,6 +8,8 @@ import Pesquisar from './Pesquisar.jsx'
 import Alterando from './Alterando.jsx'
 import Agendar from './Agendamento.jsx'
 import Reviews from './Reviews.jsx'
+import Cadastrar from './cadastrar.jsx'
+import Login from './login.jsx'
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
@@ -16,6 +18,8 @@ const router = createBrowserRouter([
   { path: '/alterando/:id', element: <Alterando /> },
   { path: '/agendar', element: <Agendar /> },
   { path: '/reviews/:id', element: <Reviews /> },
+  { path: '/cadastrar', element: <Cadastrar /> },
+  { path: '/login', element: <Login /> },
 ]);
 
 createRoot(document.getElementById('root')).render(

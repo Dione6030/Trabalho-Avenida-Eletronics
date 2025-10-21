@@ -9,6 +9,10 @@ export default function Header() {
                 <div>
                     <h1 className='font-titulo-vibrante-tec-1 text-white text-5xl'>Sua loja de eletrônicos de confiança</h1>
                 </div>
+                <div className='flex gap-4'>
+                    <Link to="/login" className='bg-vermelho-vibrante text-ciano-destaque font-medium font-texto-vibrante-tec py-2 px-4 rounded-lg'>Login</Link>
+                    <Link to="/cadastrar" className='bg-vermelho-vibrante text-ciano-destaque font-medium font-texto-vibrante-tec py-2 px-4 rounded-lg'>Cadastre-se</Link>
+                </div>
             </header>
             <nav className='flex justify-end gap-8 px-9 py-4 bg-cinza-vibrante'>
                 <Link to="/" className='bg-preto-vibrante text-vermelho-vibrante py-2 px-3 rounded-lg'>Home</Link>

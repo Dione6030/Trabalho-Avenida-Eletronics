@@ -7,7 +7,7 @@
       "marca": "Sony",
       "nome": "Dualsense",
       "preco": "379,99",
-      "imagem": "https://m.media-amazon.com/images/M/MV5BOGNhYmY5YzgtZDE5Yi00OGJlLThkMTctOTEyNzdjZjcyMDg4XkEyXkFqcGc@._V1_.jpg"
+      "imagem": "data:image/jpeg;base64,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"
     },
     {
       "id": "2",
@@ -16,7 +16,7 @@
       "marca": "AMD",
       "nome": "Ryzen 5 5600X",
       "preco": "1099,99",
-      "imagem": "https://m.media-amazon.com/images/M/MV5BMTY5NjY5NjY4NF5BMl5BanBnXkFtZTgwNjY5NjY5NjY@._V1_.jpg"
+      "imagem": "https://images1.kabum.com.br/produtos/fotos/129451/processador-amd-ryzen-9-5950x-cache-72mb-3-4ghz-4-9ghz-max-turbo-am4-100-100000065box_1602603581_gg.jpg"
     },
     {
       "id": "3",
@@ -56,25 +56,51 @@
       "subcategoria": "aa"
     }
   ],
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Adolfo",
+      "email": "adolfo@example.com",
+      "senha": "senha123",
+      "imagem": "/Imagens de perfil1.png"
+    },
+    {
+      "id": "0e06",
+      "nome": "Maria",
+      "email": "mariajoaninha@gmail.com",
+      "senha": "Mariabunda24",
+      "imagem": "/Imagens de perfil1.png"
+    },
+    {
+      "id": "8bce",
+      "nome": "João",
+      "email": "jporioli@gmail.com",
+      "senha": "vamoacordaressepredio",
+      "imagem": "/Imagens de perfil1.png"
+    }
+  ],
   "reviews": [
     {
       "id": "1",
       "produtoId": 1,
-      "usuario": "João",
+      "usuarioId": "8bce",
+      "usuarioNome": "João",
       "avaliacao": 5,
       "comentario": "Ótimo produto!"
     },
     {
       "id": "2",
       "produtoId": 1,
-      "usuario": "Maria",
+      "usuarioId": "0e06",
+      "usuarioNome": "Maria",
       "avaliacao": 4,
       "comentario": "Bom, mas poderia ser melhor."
     },
     {
       "id": "fcd8",
       "produtoId": 5,
-      "usuario": "Adolfo",
+      "usuarioId": "1",
+      "usuarioNome": "Adolfo",
       "avaliacao": "2",
       "comentario": "Pouca definição de gases!"
     }
