@@ -16,7 +16,7 @@ function Pesquisar() {
             const pesquisaCateg = (data.pesquisacateg || '').toString().toUpperCase();
             const pesquisaSCateg = (data.pesquisascateg || '').toString().toUpperCase();
 
-            if (!pesquisaMarca && (!pesquisaCateg || !pesquisaSCateg)) {
+            if (!pesquisaMarca && !pesquisaCateg && !pesquisaSCateg) {
                 setProdutos(dados);
                 return;
             }
@@ -62,7 +62,9 @@ function Pesquisar() {
                         {...register("pesquisamarca")} />
                         <input type="text" className="bg-cinza-primario border border-cinza-secundario rounded-lg p-2"
                         placeholder="Categoria"
-                        {...register("pesquisacateg")}
+                        {...register("pesquisacateg")} />
+                        <input type="text" className="bg-cinza-primario border border-cinza-secundario rounded-lg p-2"
+                        placeholder="Subcategoria"
                         {...register("pesquisascateg")} />
                     </div>
                     <input type="submit" value="Pesquisar" className="bg-azul-destaque rounded-lg p-2 cursor-pointer" />
