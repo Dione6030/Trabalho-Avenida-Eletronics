@@ -19,7 +19,7 @@ function Card({ produto }){
                 <p className='text-sm font-medium text-azul-destaque'>Preço base: R$ {preco}</p>
             </div>
             <div className='flex justify-between items-center gap-4 px-4 py-4'>
-                <button className='py-2 px-2 bg-preto-vibrante rounded-lg'><a href="/agendar" className='font-texto-vibrante-tec text-azul-destaque font-semibold'>Agendar entrega</a></button>
+                <button className='py-2 px-2 bg-preto-vibrante rounded-lg'><a href={`/agendar/${produto?.id}`} className='font-texto-vibrante-tec text-azul-destaque font-semibold'>Agendar entrega</a></button>
                 <button className='py-2 px-2 bg-preto-vibrante rounded-lg'><a href={`/alterando/${produto?.id}`} className='font-texto-vibrante-tec text-azul-destaque font-semibold'>Alterar</a></button>
                 <button className='py-2 px-2 bg-vermelho-vibrante rounded-lg'><a href={`/reviews/${produto?.id}`} className='font-texto-vibrante-tec text-ciano-destaque font-semibold'>Ver Reviews</a></button>
             </div>

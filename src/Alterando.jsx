@@ -118,7 +118,7 @@ function AlterarProduto() {
                     </div>
                     <div className="flex justify-between w-full">
                         <input type="submit" value="Alterar Produto" className="bg-azul-destaque rounded-lg p-2 cursor-pointer" />
-                        <button type="button" onClick={removerProduto} className="bg-vermelho-vibrante rounded-lg p-2 cursor-pointer">Remover Produto</button>
+                        <button type="button" onClick={removerProduto} className="bg-vermelho-vibrante rounded-lg p-2 cursor-pointer text-white">Remover Produto</button>
                     </div>
                 </form>
             </main>

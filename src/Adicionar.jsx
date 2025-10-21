@@ -99,7 +99,7 @@ function Adicionar() {
                     </div>
                     <div className="flex justify-between w-full">
                         <input type="submit" value="Adicionar Produto" className="bg-azul-destaque rounded-lg p-2 cursor-pointer" />
-                        <input type="reset" value="Limpar" className="bg-vermelho-vibrante rounded-lg p-2 cursor-pointer" />
+                        <input type="reset" value="Limpar" className="bg-vermelho-vibrante rounded-lg p-2 cursor-pointer text-white" />
                     </div>
                 </form>
             </main>

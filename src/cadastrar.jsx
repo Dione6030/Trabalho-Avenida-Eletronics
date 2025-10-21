@@ -1,10 +1,13 @@
 import { useForm } from "react-hook-form";
 import Header from "./components/header";
 import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 function Cadastrar() {
     const { register, handleSubmit, reset, setFocus } = useForm();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     async function cadastrarUsuario(data) {
     const nome = data.nome;
@@ -29,11 +32,19 @@ function Cadastrar() {
                 if (!resposta.ok) throw new Error("Erro ao cadastrar usuário");
                 const novoUsuario = await resposta.json();
                 alert(`Usuário ${novoUsuario.nome} cadastrado com sucesso com o id ${novoUsuario.id}!`);
+                // auto-login e redireciona para a página desejada
+                localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
+                const params = new URLSearchParams(location.search);
+                const redirect = params.get("redirect") || "/usuario";
+                navigate(redirect);
             } catch (error) {
                 console.error("Erro ao cadastrar usuário:", error);
             }
             reset();
             setFocus("nome");
+        } else {
+            alert("As senhas não coincidem. Por favor, tente novamente.");
+            setFocus("senha");
         }
     }
 
@@ -49,7 +60,7 @@ function Cadastrar() {
 
     useEffect(() => {
         setFocus("nome");
-    }, []);
+    }, [setFocus]);
 
     return (
         <>
@@ -79,7 +90,7 @@ function Cadastrar() {
                     </p>
                     <div className="flex justify-between w-full">
                         <input type="submit" value="Cadastrar" className="bg-azul-destaque rounded-lg p-2 cursor-pointer" />
-                        <input type="reset" value="Limpar" className="bg-vermelho-vibrante rounded-lg p-2 cursor-pointer" />
+                        <input type="reset" value="Limpar" className="bg-vermelho-vibrante rounded-lg p-2 cursor-pointer text-white" />
                     </div>
                 </form>
             </main>

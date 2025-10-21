@@ -74,7 +74,7 @@
     {
       "id": "8bce",
       "nome": "João",
-      "email": "jporioli@gmail.com",
+      "email": "jportioli@gmail.com",
       "senha": "vamoacordaressepredio",
       "imagem": "/Imagens de perfil1.png"
     }
@@ -103,6 +103,18 @@
       "usuarioNome": "Adolfo",
       "avaliacao": "2",
       "comentario": "Pouca definição de gases!"
+    }
+  ],
+  "agendamentos": [
+    {
+      "id": "a1",
+      "produtoId": "1",
+      "usuarioId": "8bce",
+      "regiao": "Zona Sul",
+      "estado": "Rio Grande do Sul",
+      "cidade": "Porto Alegre",
+      "endereco": "Rua Exemplo, 123",
+      "complemento": "Apto 45"
     }
   ]
 }
