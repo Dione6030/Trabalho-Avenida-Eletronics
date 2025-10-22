@@ -68,12 +68,17 @@ function Reviews() {
                 if (!respostaProdutos.ok) throw new Error("Erro ao buscar produtos");
                 const dadosProdutos = await respostaProdutos.json();
 
-                const respostaReviews = await fetch("http://localhost:3000/reviews");
+                const respostaReviews = await fetch(`http://localhost:3000/reviews?produtoId=${id}`);
                 if (!respostaReviews.ok) throw new Error("Erro ao buscar reviews");
                 const dadosReviews = await respostaReviews.json();
 
                 setProduto(dadosProdutos);
-                setReviews(dadosReviews.filter(review => review.produtoId === parseInt(id)));
+                
+                const idNum = Number(id);
+                const somenteDoProduto = Array.isArray(dadosReviews)
+                    ? dadosReviews.filter(r => Number(r?.produtoId) === idNum)
+                    : [];
+                setReviews(somenteDoProduto);
             } catch (error) {
                 console.log("Error: ", error.message);
             }

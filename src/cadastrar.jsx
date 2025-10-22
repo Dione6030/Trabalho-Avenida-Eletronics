@@ -15,7 +15,7 @@ function Cadastrar() {
     const senha = data.senha;
     const confirmarSenha = data.confirmarSenha;
     // se o usuário não fornecer imagem, usamos uma imagem padrão pública
-    const imagem = data.imagem && data.imagem.trim() !== "" ? data.imagem : "/Imagens de perfil1.png";
+    const imagem = data.imagem && data.imagem.trim() !== "" ? data.imagem : "/Imagens de perfil2.png";
 
         if (senha === confirmarSenha) {
             try {
@@ -35,7 +35,7 @@ function Cadastrar() {
                 // auto-login e redireciona para a página desejada
                 localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
                 const params = new URLSearchParams(location.search);
-                const redirect = params.get("redirect") || "/usuario";
+                const redirect = params.get("redirect") || "/";
                 navigate(redirect);
             } catch (error) {
                 console.error("Erro ao cadastrar usuário:", error);

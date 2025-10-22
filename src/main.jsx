@@ -10,7 +10,6 @@ import Agendar from './Agendamento.jsx'
 import Reviews from './Reviews.jsx'
 import Cadastrar from './cadastrar.jsx'
 import Login from './login.jsx'
-import Usuario from './usuario.jsx'
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
@@ -21,7 +20,6 @@ const router = createBrowserRouter([
   { path: '/reviews/:id', element: <Reviews /> },
   { path: '/cadastrar', element: <Cadastrar /> },
   { path: '/login', element: <Login /> },
-  { path: '/usuario', element: <Usuario /> },
 ]);
 
 createRoot(document.getElementById('root')).render(

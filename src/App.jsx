@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import Card from './components/card'
 import Header from './components/header'
-import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 
 function App() {
