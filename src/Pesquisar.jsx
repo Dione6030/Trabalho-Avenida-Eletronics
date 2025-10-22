@@ -4,7 +4,7 @@ import Card from "./components/card";
 import { useState } from "react";
 
 function normalizarString(str) {
-  return str
+    return str
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
