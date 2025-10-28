@@ -66,7 +66,8 @@
       "nome": "João",
       "email": "jportioli@gmail.com",
       "senha": "vamoacordaressepredio",
-      "imagem": "/Imagens de perfil1.png"
+      "imagem": "https://medias.itatiaia.com.br/dims4/default/fb52a5e/2147483647/strip/false/crop/894x894+49+0/resize/1000x1000!/quality/90/?url=https%3A%2F%2Fk2-prod-radio-itatiaia.s3.us-east-1.amazonaws.com%2Fbrightspot%2F58%2F88%2Fcc35cc204525b5cd1d05a357c0ac%2Fcelso.jpeg",
+      "confirmarSenha": "vamoacordaressepredio"
     }
   ],
   "reviews": [

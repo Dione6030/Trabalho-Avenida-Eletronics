@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import Header from "./components/header";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 function Cadastrar() {
@@ -31,19 +32,33 @@ function Cadastrar() {
                 });
                 if (!resposta.ok) throw new Error("Erro ao cadastrar usuário");
                 const novoUsuario = await resposta.json();
-                alert(`Usuário ${novoUsuario.nome} cadastrado com sucesso com o id ${novoUsuario.id}!`);
+                Swal.fire({
+                    title: `Usuário ${novoUsuario.nome} cadastrado com sucesso, seja bem-vindo!`,
+                    icon: "success",
+                    draggable: true
+                  });
                 // auto-login e redireciona para a página desejada
                 localStorage.setItem("usuarioLogado", JSON.stringify(novoUsuario));
                 const params = new URLSearchParams(location.search);
                 const redirect = params.get("redirect") || "/";
                 navigate(redirect);
             } catch (error) {
-                console.error("Erro ao cadastrar usuário:", error);
+                Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Erro ao cadastrar usuário: " + error.message,
+                footer: '<a href="#">Why do I have this issue?</a>'
+              });
             }
             reset();
             setFocus("nome");
         } else {
-            alert("As senhas não coincidem. Por favor, tente novamente.");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "As senhas não coincidem!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+              });
             setFocus("senha");
         }
     }
