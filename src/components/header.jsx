@@ -2,7 +2,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import '../App.css'
 import { useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
-import { set, useForm } from 'react-hook-form';
 
 export default function Header() {
     const location = useLocation();
@@ -70,67 +69,7 @@ export default function Header() {
         navigate('/login');
     }
 
-    async function login() {
-        const { register, handleSubmit } = useForm();
-
-        async function entrarUsuario(data) {
-            const email = data.email;
-            const senha = data.senha;
-
-            try {
-                const resposta = await fetch(
-                    "http://localhost:3000/usuarios/?email=" + encodeURIComponent(email) + "&senha=" + encodeURIComponent(senha)
-                );
-                if (!resposta.ok) throw new Error("Erro ao buscar usuário");
-
-                const usuarios = await resposta.json();
-                if (!Array.isArray(usuarios) || usuarios.length === 0) {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "E-mail ou senha invalidos!",
-                        footer: '<a href="#">Why do I have this issue?</a>'
-                    });
-                    return;
-                }
-
-                const usuario = usuarios[0];
-                localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-                setUsuario(usuario);
-                Swal.fire({
-                    title: `Seja bem-vindo, ${usuario.nome}!`,
-                    icon: "success",
-                    draggable: true
-                });
-            } catch (error) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Erro ao cadastrar usuário: " + error.message + ", entre novamente mais tarde.",
-                    footer: '<a href="#">Why do I have this issue?</a>'
-                });
-            }
-        }
-        MySwal.fire({
-            title: <h2 className="text-3xl font-titulo-vibrante-tec-2 font-semibold text-vermelho-vibrante">Login</h2>,
-            html: (
-                <form onSubmit={handleSubmit(entrarUsuario)} className="flex flex-col gap-4 bg-preto-vibrante p-6 rounded-lg">
-                    <p className="flex flex-col gap-2 mb-4">
-                        <label  className="font-texto-vibrante-tec text-vermelho-vibrante text-[1.25rem]">Email: </label>
-                        <input type="email" className="bg-cinza-primario border border-cinza-secundario rounded-lg p-2" {...register("email")} required />
-                    </p>
-                    <p className="flex flex-col gap-2 mb-4">
-                        <label  className="font-texto-vibrante-tec text-vermelho-vibrante text-[1.25rem]">Senha: </label>
-                        <input type="password" className="bg-cinza-primario border border-cinza-secundario rounded-lg p-2" {...register("senha")} required />
-                    </p>
-                    <input type="submit" value="Entrar" className="bg-azul-destaque rounded-lg p-2 cursor-pointer"/>
-                </form>
-            ),
-            showConfirmButton: false,
-        })
-    }
-
-    async function alterarPerfilUsuario() {
+    async function abrirPerfilModal() {
         if (!usuario) return;
         const result = await Swal.fire({
             title: '<strong>Meu Perfil</strong>',
@@ -193,12 +132,12 @@ export default function Header() {
                 </div>
                 <div className='flex gap-4 items-center'>
                     {usuario ? (
-                        <button type="button" onClick={alterarPerfilUsuario} title={usuario.nome || 'Perfil'} className='rounded-full cursor-pointer'>
+                        <button type="button" onClick={abrirPerfilModal} title={usuario.nome || 'Perfil'} className='rounded-full cursor-pointer'>
                             <img src={usuario.imagem || '/Imagens de perfil1.png'} alt="Perfil" className='w-20 h-w-20 rounded-full object-cover border-2 border-white' />
                         </button>
                     ) : (
                         <>
-                            <button onClick={login} className='bg-vermelho-vibrante text-ciano-destaque font-medium font-texto-vibrante-tec py-2 px-4 rounded-lg'>Login</button>
+                            <Link to={`/login?redirect=${redirectParam}`} className='bg-vermelho-vibrante text-ciano-destaque font-medium font-texto-vibrante-tec py-2 px-4 rounded-lg'>Login</Link>
                             <Link to={`/cadastrar?redirect=${redirectParam}`} className='bg-vermelho-vibrante text-ciano-destaque font-medium font-texto-vibrante-tec py-2 px-4 rounded-lg'>Cadastre-se</Link>
                         </>
                     )}

@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import Header from "./components/header";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 
 
 function Login() {
@@ -29,11 +28,7 @@ function Login() {
 
             const usuario = usuarios[0];
             localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-            Swal.fire({
-                title: `Seja bem-vindo, ${usuario.nome}!`,
-                icon: "success",
-                draggable: true
-              });
+            alert(`Seja bem-vindo, ${usuario.nome}!`);
 
             const params = new URLSearchParams(location.search);
             const redirect = params.get("redirect") || "/";
