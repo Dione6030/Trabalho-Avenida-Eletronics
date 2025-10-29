@@ -41,14 +41,18 @@ function Card({ produto }){
         return () => { abort = true }
     }, [produto?.id])
 
-    function renderStars(contaMedia) {
-        const stars = []
+    function estrelas(contaMedia) {
+        const estrela = []
+
         for (let i = 1; i <= 5; i++) {
-            if (contaMedia >= i) stars.push(<FaStar key={i} className="text-yellow-400" />)
-            else if (contaMedia >= i - 0.5) stars.push(<FaStarHalfAlt key={i} className="text-yellow-400" />)
-            else stars.push(<FaRegStar key={i} className="text-yellow-400" />)
+
+            if (contaMedia >= i) estrela.push(<FaStar key={i} className="text-yellow-400" />)
+
+            else if (contaMedia >= i - 0.5) estrela.push(<FaStarHalfAlt key={i} className="text-yellow-400" />)
+
+            else estrela.push(<FaRegStar key={i} className="text-yellow-400" />)
         }
-        return <div className="flex items-center gap-1">{stars}</div>
+        return <div className="flex items-center gap-1">{estrela}</div>
     }
 
     return (
@@ -68,7 +72,7 @@ function Card({ produto }){
                 </div>
             ) : (
                 <div className='flex items-center gap-2 px-6 pb-2'>
-                    {renderStars(media)}
+                    {estrelas(media)}
                     <span className='text-sm text-white'>{media.toFixed(1)} ({reviewsCount})</span>
                 </div>
             )}
